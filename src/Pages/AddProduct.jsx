@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import bgImg from "../assets/images/cool-background.png";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const { brands } = useLoaderData();
