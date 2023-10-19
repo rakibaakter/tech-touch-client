@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import useAuthInfoHook from "../../Hooks/useAuthInfoHook";
 import profile from "../../assets/images/profile.jpg";
-import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
 const Navbar = () => {
   const { user, logOut } = useAuthInfoHook();

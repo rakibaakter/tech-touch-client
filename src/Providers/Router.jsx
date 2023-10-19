@@ -5,6 +5,7 @@ import AddProduct from "../Pages/AddProduct";
 import Login from "../Pages/Login";
 import ErrorPage from "../Pages/ErrorPage";
 import Register from "../Pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "/add-product",
-        element: <AddProduct />,
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
         loader: () => fetch("/brands.json"),
       },
       {
