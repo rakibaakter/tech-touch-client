@@ -5,8 +5,10 @@ const Layout = () => {
   return (
     <div className="bg-black text-white">
       <Navbar />
-      <Outlet />
-      {/* <h2>Footer</h2> */}
+      <div className="min-h-[90vh]">
+        <Outlet />
+      </div>
+      <h2>Footer</h2>
     </div>
   );
 };
