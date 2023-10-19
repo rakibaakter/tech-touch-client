@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../assets/images/cool-background-black.png";
-// import useAuthInfoHooks from "../Hooks/useAuthInfoHooks";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { ToastContainer, toast } from "react-toastify";
