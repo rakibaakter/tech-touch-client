@@ -12,7 +12,7 @@ const Banner = () => {
     >
       <div className="hero-overlay bg-opacity-90"></div>
       <div className="hero ">
-        <div className="hero-content flex-col-re lg:flex-row-reverse px-20">
+        <div className="hero-content flex-col-reverse lg:flex-row-reverse ">
           <img src={logo2} className=" md:h-72 md:w-72 object-cover" />
           <div>
             <h1 className="text-5xl font-bold">Tech Touch</h1>
