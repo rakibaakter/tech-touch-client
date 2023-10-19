@@ -12,7 +12,7 @@ const BrandsContainer = () => {
     //     backgroundImage: `url(${bgImg})`,
     //   }}
     >
-      <div className="px-4 lg:px-0 lg:w-3/4 mx-auto text-center my-16 ">
+      <div className="px-4 md:px-10 lg:px-0 lg:w-3/4 mx-auto text-center my-16 ">
         <h2 className="text-3xl font-semibold ">Our Brands </h2>
         <p className="mt-6 mb-16">
           We are working for you to make your life easier. We provide authentic
