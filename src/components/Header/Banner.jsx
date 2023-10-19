@@ -1,5 +1,6 @@
 import banner from "../../assets/images/banner2.jpg";
 import logo2 from "../../assets/images/logo2.png";
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
 const Banner = () => {
   return (
@@ -22,22 +23,10 @@ const Banner = () => {
               We believe in customer happiness. So for any kind of electronics
               or technological gadget , you can visit us.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <PrimaryButton>Get Started</PrimaryButton>
           </div>
         </div>
       </div>
-
-      {/* <div className="hero-content text-center text-neutral-content">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-          <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-          <button className="btn btn-primary">Get Started</button>
-        </div>
-      </div> */}
     </div>
   );
 };
