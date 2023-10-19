@@ -1,17 +1,17 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import bgImg from "../assets/images/cool-background.png";
-// import useAuthInfoHooks from "../Hooks/useAuthInfoHooks";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-// import { updateProfile } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
+import useAuthInfoHook from "../Hooks/useAuthInfoHook";
 
 const Register = () => {
-  //   const { createUserByEmail } = useAuthInfoHooks();
+  const { createUserByEmail } = useAuthInfoHook();
   const [showPassword, setShowPassword] = useState(false);
   //   const navigate = useNavigate();
-  //   const location = useLocation();
+  const location = useLocation();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -19,6 +19,45 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(name, email, password);
+
+    if (password.length < 6) {
+      toast.error("Password should be at least 6 characters or longer", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error("Password should have at least one upper case characters.", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+      return;
+    } else if (!/[!@#$%&*_]/.test(password)) {
+      toast.error(
+        "Password should have at least one special characters (!, @, #,$,%,&,*,_).",
+        {
+          position: toast.POSITION.BOTTOM_CENTER,
+        }
+      );
+      return;
+    }
+
+    createUserByEmail(email, password)
+      .then((result) => {
+        // update profile
+        updateProfile(result.user, {
+          displayName: name,
+        });
+        toast.success("Registration succeed !", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+
+        // navigate after register
+        Navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message, {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      });
   };
 
   return (
@@ -90,7 +129,7 @@ const Register = () => {
                       Register
                     </button>
                   </div>
-                  {/* <ToastContainer /> */}
+                  <ToastContainer />
                 </form>
               </div>
             </div>
