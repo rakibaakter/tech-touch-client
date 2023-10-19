@@ -2,11 +2,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../assets/images/cool-background-black.png";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
+import useAuthInfoHook from "../Hooks/useAuthInfoHook";
 
 const Login = () => {
+  const { logInbyEmail, signInByGoogle } = useAuthInfoHook();
   const navigate = useNavigate();
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
@@ -17,25 +19,25 @@ const Login = () => {
     const password = e.target.password.value;
     console.log(email, password);
 
-    // logInbyEmail(email, password)
-    //   .then((res) => {
-    //     console.log(res.user);
-    //     toast.success("logged in successfully !", {
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
+    logInbyEmail(email, password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("logged in successfully !", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
 
-    //     // navigate after login
-    //     navigate(location?.state ? location.state : "/");
-    //   })
-    //   .catch((error) => {
-    //     toast.error(error.message, {
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   });
+        // navigate after login
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message, {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      });
   };
 
   const handleSignInByGoogle = () => {
-    // signInByGoogle();
+    signInByGoogle();
     navigate(location?.state ? location.state : "/");
   };
 
@@ -105,7 +107,7 @@ const Login = () => {
                   </button>
                 </div>
               </div>
-              {/* <ToastContainer /> */}z
+              <ToastContainer />
             </div>
           </div>
         </div>
