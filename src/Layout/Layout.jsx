@@ -4,8 +4,8 @@ import FooterContainer from "../components/Footer/FooterContainer";
 
 const Layout = () => {
   return (
-    <div className="bg-black text-white">
-      <Navbar className="sticky" />
+    <div className="bg-black text-white relative">
+      <Navbar className="fixed" />
       <div className="min-h-[90vh]">
         <Outlet />
       </div>
