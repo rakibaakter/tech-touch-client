@@ -1,7 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
+import useAuthInfoHook from "../../Hooks/useAuthInfoHook";
+import profile from "../../assets/images/profile.jpg";
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
 const Navbar = () => {
+  const { user, logOut } = useAuthInfoHook();
   const navLinks = (
     <>
       <li>
@@ -28,18 +32,10 @@ const Navbar = () => {
           My Cart
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/login"
-          className={({ isActive }) => (isActive ? "bg-sky-600" : "bg-none")}
-        >
-          Login
-        </NavLink>
-      </li>
     </>
   );
   return (
-    <div className="navbar">
+    <div className="navbar px-2 md:px-10 lg:px-20">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -71,7 +67,25 @@ const Navbar = () => {
         <ul className="menu menu-horizontal space-x-3 px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user ? (
+          <div className="flex flex-col md:flex-row md:gap-3">
+            <span className="">
+              <img
+                className="h-6 w-6 md:h-10 md:w-10 rounded-full ml-4"
+                src={user.photoURL ? user.photoURL : profile}
+                alt=""
+              />
+              <span className="mr-3">{user.displayName}</span>
+            </span>
+            <Link onClick={logOut} className="md:mt-2">
+              <a className="text-accent font-semibold md:text-xl ">Sign Out</a>
+            </Link>
+          </div>
+        ) : (
+          <Link to="/login">
+            <a className="text-accent font-semibold text-xl ">Sign In</a>
+          </Link>
+        )}
       </div>
     </div>
   );

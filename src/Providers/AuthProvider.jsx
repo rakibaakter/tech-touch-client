@@ -32,21 +32,21 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  //   const logOut = () => {
-  //     setLoading(true);
-  //     return signOut(auth);
-  //   };
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
   // set user in auth state change
-  //   useEffect(() => {
-  //     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //       setLoading(false);
-  //       setUser(currentUser);
-  //     });
-  //     return () => {
-  //       unSubscribe();
-  //     };
-  //   }, []);
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setLoading(false);
+      setUser(currentUser);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user,
@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
     createUserByEmail,
     signInByGoogle,
     logInbyEmail,
-    // logOut,
+    logOut,
   };
 
   return <AuthContex.Provider value={authInfo}>{children}</AuthContex.Provider>;
