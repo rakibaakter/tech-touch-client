@@ -1,0 +1,28 @@
+{
+  "brands": [
+    {
+      "name": "Apple",
+      "image": "https://i.ibb.co/gg6hWnQ/apple.jpg"
+    },
+    {
+      "name": "Samsung",
+      "image": "https://i.ibb.co/DfsrFL4/samsung.jpg"
+    },
+    {
+      "name": "Sony",
+      "image": "https://i.ibb.co/Trr0ps7/sony.jpg"
+    },
+    {
+      "name": "Google",
+      "image": "https://i.ibb.co/KLsndBn/google.jpg"
+    },
+    {
+      "name": "Intel",
+      "image": "https://example.com/intel-logo.jpg"
+    },
+    {
+      "name": "Razer",
+      "image": "https://i.ibb.co/jzFWgJw/acbfe86fcf889b032f970021114255ed.png"
+    }
+  ]
+}
