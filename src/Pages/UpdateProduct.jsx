@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import bgImg from "../assets/images/cool-background.png";
 import Swal from "sweetalert2";
+const UpdateProduct = () => {
+  const product = useLoaderData();
+  console.log(product);
 
-const AddProduct = () => {
-  const { brands } = useLoaderData();
+  const { _id, name, brand, type, price, image, description, rating } =
+    product[0];
 
   const handleAddProduct = (event) => {
     event.preventDefault();
@@ -22,8 +25,8 @@ const AddProduct = () => {
     console.log(newProduct);
 
     // post product to database
-    fetch("http://localhost:5000/products", {
-      method: "POST",
+    fetch(`http://localhost:5000/product/${_id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,10 +35,10 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Product Added Successfully",
+            text: "Product Updated Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -49,13 +52,11 @@ const AddProduct = () => {
       style={{
         backgroundImage: `url(${bgImg})`,
         backgroundSize: "cover",
-        // backgroundRepeat: "repeat",
-        // opacity: "0.7",
       }}
     >
       <div className="bg-black opacity-60 py-16">
         <div className="space-y-6 px-4 md:px-10 lg:px-0 lg:w-1/2 mx-auto text-center  text-accent ">
-          <h2 className="text-4xl font-bold">Add New Product</h2>
+          <h2 className="text-4xl font-bold">Update Product</h2>
 
           <form onSubmit={handleAddProduct} className="space-y-2 p-2">
             {/* name */}
@@ -68,6 +69,7 @@ const AddProduct = () => {
               <label className="input-group">
                 <input
                   required
+                  defaultValue={name}
                   type="text"
                   name="name"
                   placeholder="Enter Product name"
@@ -85,15 +87,17 @@ const AddProduct = () => {
                 </label>
                 <label className="input-group">
                   <select
+                    defaultValue={brand}
                     id="brand"
                     name="brand"
                     className="input input-bordered w-full text-xl font-medium"
                   >
-                    {brands.map((singleBrand) => (
-                      <option key={singleBrand.id} value={singleBrand.name}>
-                        {singleBrand.name}
-                      </option>
-                    ))}
+                    <option value="Apple">Apple</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Sony">Sony</option>
+                    <option value="Google">Google</option>
+                    <option value="Intel">Intel</option>
+                    <option value="Razer">Razer</option>
                   </select>
                 </label>
               </div>
@@ -105,6 +109,7 @@ const AddProduct = () => {
                 </label>
                 <label className="input-group">
                   <select
+                    defaultValue={type}
                     id="type"
                     name="type"
                     className="input input-bordered w-full text-xl font-medium"
@@ -128,6 +133,7 @@ const AddProduct = () => {
                 <label className="input-group">
                   <input
                     required
+                    defaultValue={price}
                     type="text"
                     name="price"
                     placeholder="Enter price in $"
@@ -144,6 +150,7 @@ const AddProduct = () => {
                 <label className="input-group">
                   <input
                     required
+                    defaultValue={rating}
                     type="text"
                     name="rating"
                     placeholder="Rate out of 5"
@@ -163,6 +170,7 @@ const AddProduct = () => {
               <label className="input-group">
                 <input
                   required
+                  defaultValue={image}
                   type="text"
                   name="image"
                   placeholder="Enter Image URL"
@@ -179,6 +187,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <textarea
+                  defaultValue={description}
                   required
                   rows="10"
                   name="description"
@@ -192,7 +201,7 @@ const AddProduct = () => {
             <div className="mt-6 w-full">
               <input
                 type="submit"
-                value="Add Product"
+                value="Update Now"
                 className="btn bg-sky-600 w-full text-white text-2xl mt-6"
               />
             </div>
@@ -203,4 +212,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

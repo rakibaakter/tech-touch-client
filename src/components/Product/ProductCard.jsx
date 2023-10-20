@@ -1,6 +1,5 @@
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
-import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
@@ -23,7 +22,9 @@ const ProductCard = ({ product }) => {
             fullSymbol={<AiFillStar />}
           />
         </div>
-        <div className="badge badge-outline p-3">Update</div>
+        <Link to={`/update-product/${_id}`} className="badge badge-outline p-3">
+          Update
+        </Link>
         <Link to={`/product/${_id}`}>
           <button className="btn bg-sky-600 text-white border-none w-full mt-4">
             View Details
