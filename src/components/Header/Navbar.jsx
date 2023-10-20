@@ -25,7 +25,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/cart"
+          to="/my-cart"
           className={({ isActive }) => (isActive ? "bg-sky-600" : "bg-none")}
         >
           My Cart
