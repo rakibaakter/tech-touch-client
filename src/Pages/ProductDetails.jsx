@@ -5,7 +5,7 @@ const ProductDetails = () => {
   const product = useLoaderData();
   console.log(product);
 
-  const { name, brand, type, price, image, description } = product[0];
+  const { name, brand, type, price, image, description } = product;
 
   const handleAddToCart = (item) => {
     fetch("http://localhost:5000/carts", {
@@ -48,7 +48,7 @@ const ProductDetails = () => {
             </div>
             <div className="flex justify-start">
               <button
-                onClick={() => handleAddToCart(product[0])}
+                onClick={() => handleAddToCart(product)}
                 className="btn bg-sky-600 text-white border-none w-2/3"
               >
                 Add To Cart
