@@ -15,7 +15,7 @@ const Category = () => {
       <div className="px-4 md:px-10 lg:px-0 lg:w-3/4 mx-auto text-center my-16 ">
         <h2 className="text-3xl font-semibold ">Product Category</h2>
 
-        <div className="flex justify-evenly py-20 text-9xl text-accent ">
+        <div className="flex  justify-evenly py-10 md:py-20 text-5xl md:text-9xl text-accent ">
           <FiWatch />
           <FaMobileAlt />
           <HiOutlineDesktopComputer />
