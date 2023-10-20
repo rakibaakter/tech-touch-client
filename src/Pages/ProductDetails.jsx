@@ -1,12 +1,33 @@
-import { AiOutlineStar } from "react-icons/ai";
-import Rating from "react-rating";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const product = useLoaderData();
   console.log(product);
 
   const { name, brand, type, price, image, description } = product[0];
+
+  const handleAddToCart = (item) => {
+    fetch("http://localhost:5000/carts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product Added To Cart Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
+  };
 
   return (
     <div className="px-4 md:px-10 lg:px-0 lg:w-3/4 mx-auto text-center my-16  ">
@@ -25,11 +46,14 @@ const ProductDetails = () => {
               <h2 className="text-3xl font-semibold">Description:</h2>
               <p>{description}</p>
             </div>
-            <Link to={`/product/`} className="flex justify-start">
-              <button className="btn bg-sky-600 text-white border-none w-2/3">
+            <div className="flex justify-start">
+              <button
+                onClick={() => handleAddToCart(product[0])}
+                className="btn bg-sky-600 text-white border-none w-2/3"
+              >
                 Add To Cart
               </button>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
