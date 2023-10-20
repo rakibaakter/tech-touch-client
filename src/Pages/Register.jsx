@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../assets/images/cool-background.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +10,7 @@ import useAuthInfoHook from "../Hooks/useAuthInfoHook";
 const Register = () => {
   const { createUserByEmail } = useAuthInfoHook();
   const [showPassword, setShowPassword] = useState(false);
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const handleRegister = (e) => {
@@ -51,7 +51,7 @@ const Register = () => {
         });
 
         // navigate after register
-        Navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error(error.message, {
