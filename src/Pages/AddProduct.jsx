@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import bgImg from "../assets/images/cool-background.png";
+import Swal from "sweetalert2";
 // import Swal from "sweetalert2";
 
 const AddProduct = () => {
@@ -7,7 +8,41 @@ const AddProduct = () => {
 
   const handleAddProduct = (event) => {
     event.preventDefault();
-    console.log(event.target);
+    // console.log(event.target);
+    const form = event.target;
+    console.log(form);
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const image = form.image.value;
+    const description = form.description.value;
+
+    const newProduct = { name, brand, type, price, rating, image, description };
+    console.log(newProduct);
+
+    // post product to database
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          form.reset();
+        }
+      });
   };
 
   return (
@@ -33,6 +68,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <input
+                  required
                   type="text"
                   name="name"
                   placeholder="Enter Product name"
@@ -92,6 +128,7 @@ const AddProduct = () => {
                 </label>
                 <label className="input-group">
                   <input
+                    required
                     type="text"
                     name="price"
                     placeholder="Enter price in $"
@@ -107,6 +144,7 @@ const AddProduct = () => {
                 </label>
                 <label className="input-group">
                   <input
+                    required
                     type="text"
                     name="rating"
                     placeholder="Rate out of 5"
@@ -125,6 +163,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <input
+                  required
                   type="text"
                   name="image"
                   placeholder="Enter Image URL"
@@ -141,6 +180,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <textarea
+                  required
                   rows="10"
                   name="description"
                   placeholder="Please describe "
