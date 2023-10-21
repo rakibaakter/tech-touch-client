@@ -5,8 +5,7 @@ const UpdateProduct = () => {
   const product = useLoaderData();
   console.log(product);
 
-  const { _id, name, brand, type, price, image, description, rating } =
-    product[0];
+  const { _id, name, brand, type, price, image, description, rating } = product;
 
   const handleAddProduct = (event) => {
     event.preventDefault();
@@ -25,13 +24,16 @@ const UpdateProduct = () => {
     console.log(newProduct);
 
     // post product to database
-    fetch(`http://localhost:5000/product/${_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/product/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

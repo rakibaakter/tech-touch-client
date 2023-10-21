@@ -6,6 +6,7 @@ import Advertisement from "../components/Header/Advertisement";
 const Products = () => {
   const products = useLoaderData();
   console.log(products);
+
   return (
     <div>
       {products.length ? (

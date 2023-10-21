@@ -1,8 +1,17 @@
-# React + Vite
+# Project Name: Tech Touch Brand Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Link
 
-Currently, two official plugins are available:
+https://tech-touch-5e4de.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+1. **Feature 1: Implemented white mood toggle for home page**
+
+2. **Feature 2: User can login by email password or by google**
+
+3. **Feature 3: Have login and register page toggle option**
+
+4. **Feature 4: Logged in user can upload or update product to database**
+
+5. **Feature 5: Have add to cart product**

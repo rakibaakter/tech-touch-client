@@ -47,13 +47,17 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/product/${params.id}`
+          ),
       },
       {
         path: "/products/:name",
         element: <Products />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.name}`),
+          fetch(
+            `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/products/${params.name}`
+          ),
       },
       {
         path: "/product/:id",
@@ -63,7 +67,9 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/product/${params.id}`
+          ),
       },
 
       {
@@ -73,7 +79,10 @@ const Router = createBrowserRouter([
             <MyCart />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/carts"),
+        loader: () =>
+          fetch(
+            "https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/carts"
+          ),
       },
     ],
   },

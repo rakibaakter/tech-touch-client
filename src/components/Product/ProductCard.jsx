@@ -3,7 +3,9 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  console.log(product);
   const { _id, name, brand, type, price, rating, image } = product;
+
   return (
     <div className="card bg-slate-900 shadow-xl flex flex-grow ">
       <figure>
