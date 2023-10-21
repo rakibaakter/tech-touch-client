@@ -5,7 +5,7 @@ import Banner from "../components/Header/Banner";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-black text-white">
       <Banner />
       <Category />
       <BrandsContainer />

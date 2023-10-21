@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import useAuthInfoHook from "../../Hooks/useAuthInfoHook";
 import profile from "../../assets/images/profile.jpg";
+import Theme from "../Theme/Theme";
 
 const Navbar = () => {
   const { user, logOut } = useAuthInfoHook();
@@ -30,6 +31,9 @@ const Navbar = () => {
         >
           My Cart
         </NavLink>
+      </li>
+      <li>
+        <Theme />
       </li>
     </>
   );

@@ -1,17 +1,20 @@
-import { AiOutlineArrowRight } from "react-icons/ai";
-import bgImg from "../../assets/images/simple.png";
+import useAuthInfoHook from "../../Hooks/useAuthInfoHook";
+import bgImg from "../../assets/images/cool-background-black.png";
+import bgImg2 from "../../assets/images/diamond.png";
 import { BiCheckDouble } from "react-icons/bi";
 
 const AboutUs = () => {
+  const { isWhite } = useAuthInfoHook();
   return (
     <div
       style={{
-        backgroundImage: `url(${bgImg})`,
+        backgroundImage: `url(${isWhite ? bgImg2 : bgImg})`,
         backgroundSize: "cover",
-        // opacity: "0.8",
+        // opacity: "0.2",
       }}
+      className={`${isWhite && "text-black"}`}
     >
-      <div className="px-4 md:px-10 lg:px-0 lg:w-3/4 mx-auto text-center my-16 py-10">
+      <div className=" px-4 md:px-10 lg:px-0 lg:w-3/4 mx-auto text-center py-10">
         <h2 className="text-3xl font-semibold ">Why Tech Touch?</h2>
 
         <div className="py-6 md:py-12">

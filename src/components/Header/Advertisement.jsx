@@ -65,11 +65,11 @@ const Advertisement = () => {
         <div
           className="hero min-h-[80vh]"
           style={{
-            backgroundImage: `url(${banner3})`,
+            backgroundImage: `url(${banner1})`,
           }}
         >
           <div className="hero-content text-center text-White ">
-            <div className="max-w-md">
+            <div className="max-w-md text-slate-600">
               <h1 className="mb-5 text-3xl md:text-5xl font-bold">
                 Year 2023 Sell
               </h1>

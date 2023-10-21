@@ -14,6 +14,7 @@ export const AuthContex = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isWhite, setIsWhite] = useState(false);
 
   const createUserByEmail = (email, password) => {
     setLoading(true);
@@ -49,6 +50,8 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const authInfo = {
+    isWhite,
+    setIsWhite,
     user,
     loading,
     createUserByEmail,

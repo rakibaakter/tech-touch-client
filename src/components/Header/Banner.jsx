@@ -10,8 +10,8 @@ const Banner = () => {
         backgroundImage: `url(${banner})`,
       }}
     >
-      <div className="hero-overlay bg-opacity-90"></div>
-      <div className="hero ">
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero text-white">
         <div className="hero-content flex-col-reverse lg:flex-row-reverse mt-4 md:mt-10">
           <img src={logo2} className=" md:h-72 md:w-72 object-cover" />
           <div>
