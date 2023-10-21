@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuthInfoHook from "../Hooks/useAuthInfoHook";
 
 const ProductDetails = () => {
   const [addedProduct, setAddedProduct] = useState({});
   const product = useLoaderData();
-  console.log(product);
+  const { user } = useAuthInfoHook();
+  console.log(product, user.email);
 
   const { _id, name, brand, type, price, image, description } = product;
 
@@ -19,10 +21,9 @@ const ProductDetails = () => {
   }, []);
 
   const handleAddToCart = (item) => {
+    item.email = user.email;
     if (
-      addedProduct.filter(
-        (addedSingleProduct) => addedSingleProduct._id === _id
-      )
+      addedProduct.find((addedSingleProduct) => addedSingleProduct._id === _id)
     ) {
       Swal.fire({
         title: "Sorry!",

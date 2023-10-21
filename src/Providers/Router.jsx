@@ -80,7 +80,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () =>
-          fetch("https://brand-shop-server-woad-tau.vercel.app/carts"),
+          fetch("https://brand-shop-server-woad-tau.vercel.app/carts/"),
       },
     ],
   },
