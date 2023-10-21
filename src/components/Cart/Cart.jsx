@@ -15,12 +15,9 @@ const Cart = ({ cart, index, carts, setCarts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/carts/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://brand-shop-server-woad-tau.vercel.app/carts/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

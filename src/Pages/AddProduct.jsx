@@ -22,16 +22,13 @@ const AddProduct = () => {
     console.log(newProduct);
 
     // post product to database
-    fetch(
-      "https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/products",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      }
-    )
+    fetch("https://brand-shop-server-woad-tau.vercel.app/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

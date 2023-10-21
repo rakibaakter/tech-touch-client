@@ -48,7 +48,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/product/${params.id}`
+            `https://brand-shop-server-woad-tau.vercel.app/product/${params.id}`
           ),
       },
       {
@@ -56,7 +56,7 @@ const Router = createBrowserRouter([
         element: <Products />,
         loader: ({ params }) =>
           fetch(
-            `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/products/${params.name}`
+            `https://brand-shop-server-woad-tau.vercel.app/products/${params.name}`
           ),
       },
       {
@@ -68,7 +68,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/product/${params.id}`
+            `https://brand-shop-server-woad-tau.vercel.app/product/${params.id}`
           ),
       },
 
@@ -80,9 +80,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () =>
-          fetch(
-            "https://brand-shop-server-awcc21yh7-rakibaakter.vercel.app/carts"
-          ),
+          fetch("https://brand-shop-server-woad-tau.vercel.app/carts"),
       },
     ],
   },
