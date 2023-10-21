@@ -1,13 +1,37 @@
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductDetails = () => {
+  const [addedProduct, setAddedProduct] = useState({});
   const product = useLoaderData();
   console.log(product);
 
-  const { name, brand, type, price, image, description } = product;
+  const { _id, name, brand, type, price, image, description } = product;
+
+  useEffect(() => {
+    fetch("https://brand-shop-server-woad-tau.vercel.app/carts")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setAddedProduct(data);
+      });
+  }, []);
 
   const handleAddToCart = (item) => {
+    if (
+      addedProduct.filter(
+        (addedSingleProduct) => addedSingleProduct._id === _id
+      )
+    ) {
+      Swal.fire({
+        title: "Sorry!",
+        text: "You have already added this product",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+      return;
+    }
     fetch("https://brand-shop-server-woad-tau.vercel.app/carts", {
       method: "POST",
       headers: {
