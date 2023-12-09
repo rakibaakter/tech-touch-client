@@ -4,6 +4,13 @@
 
 https://tech-touch-5e4de.web.app/
 
+## Techology
+
+# React React-Router-Dom 
+# Firebase
+# Express
+# CRUD operation on MongoDB 
+
 ## Features
 
 1. **Feature 1: Implemented white mood toggle for home page**
