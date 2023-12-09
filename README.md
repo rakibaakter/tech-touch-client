@@ -6,10 +6,10 @@ https://tech-touch-5e4de.web.app/
 
 ## Techology
 
-# React React-Router-Dom 
-# Firebase
-# Express
-# CRUD operation on MongoDB 
+### React | React-Router-Dom |Tailwind | Daisy UI
+### Firebase
+### Express
+### CRUD operation on MongoDB 
 
 ## Features
 
